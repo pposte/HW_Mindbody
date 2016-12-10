@@ -1,0 +1,237 @@
+<html ng-app="myApp">
+<head>
+	<title>MindBody Homework</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+</head>
+<body ng-controller="mainCtrl">
+
+<img src="images/logo.png">
+
+		<div class="tabs">
+
+			<div class="tab">
+				<input type="radio" id="tab-7" name="tab-group-1">
+				<label for="tab-7">Retail</label>
+				<div class="content">
+					<p style="font-size: 1000%">Retail</p>
+				</div>
+			</div>
+
+			<div class="tab">
+				<input type="radio" id="tab-6" name="tab-group-1">
+				<label for="tab-6">Client Home</label>
+
+				<div class="content">
+					<p style="font-size: 1000%">Client Home</p>
+				</div>
+			</div>
+
+			<div class="tab">
+				<input type="radio" id="tab-5" name="tab-group-1">
+				<label for="tab-5">Appointments</label>
+				<div class="content">
+					<p style="font-size: 1000%">Appointments</p>
+				</div>
+			</div>
+
+			<div class="tab">
+				<input type="radio" id="tab-4" name="tab-group-1">
+				<label for="tab-4">Workshops</label>
+				<div class="content">
+					<p style="font-size: 1000%">Workshops</p>
+				</div>
+			</div>
+
+			<div class="tab">
+				<input type="radio" id="tab-3" name="tab-group-1">
+				<label for="tab-3">Classes</label>
+				<div class="content">
+					<p style="font-size: 1000%">Classes</p>
+				</div>
+			</div>
+
+			<div class="tab">
+				<input type="radio" id="tab-2" name="tab-group-1">
+				<label for="tab-2">Sign In</label>
+				<div class="content">
+					<p style="font-size: 1000%">Sign In</p>
+				</div>
+			</div>
+
+			<div class="tab">
+				<input type="radio" id="tab-1" name="tab-group-1" checked>
+				<label for="tab-1">Dashboard</label>
+				<div class="content">
+					<div class="container">
+						<a href="#">Dashboard</a>
+						<a href="#" id="focus" class="active">Business Overview</a>
+						<a href="#">Schedule</a>
+						<a href="#">Reports</a>
+					</div>
+
+					<div class="overview">
+						<div class="newprogram">
+							<button id="btn"></button>
+							<p class="newp">New Program</p>
+							<!-- The Modal -->
+							<div id="myModal" class="modal">
+
+								<!-- Modal content -->
+								<div class="modal-content">
+									<span class="close">&times;</span>
+									<form action="#" name="myfrm">
+										<header>
+											<h2>
+												Add New Program
+											</h2><hr>
+											<table>
+
+												<tr>
+													<td>Program Type:</td>
+													<td>
+														<select>
+															<option>Count Series</option>
+															<option>Time Series</option>
+															<option>Membership</option>
+														</select>
+													</td>
+												</tr>
+
+												<tr>
+													<td>Program Name:</td>
+													<td><input type="text" placeholder="Enter Program Name.." required></td>
+												</tr>
+
+												<tr>
+													<td>Allow online Scheduling:</td>
+													<td width="20%">
+														<input type="radio" name="optradio" class="modalradio" value="true">&nbsp;&nbsp;Yes
+													</td>
+													<td width="20%">
+														<input type="radio" name="optradio" class="modalradio" value="false">&nbsp;&nbsp;No
+													</td>
+												</tr>
+
+												<tr>
+													<td>Default Capacity:</td>
+													<td><input type="text" placeholder="Enter Default Capacity.." required></td>
+												</tr>
+												<tr>
+													<td>
+														Tabs allowed on:
+													</td>
+													<td>
+														<input type="checkbox" name="Classes" value="Classes">Classes<br>
+														<input type="checkbox" name="Appointments" value="Appointments">Appointments<br>
+														<input type="checkbox" name="Workshops" value="Workshops">Workshops<br>
+														<input type="checkbox" name="Outside" value="Outside">Outside<br>
+														<input type="checkbox" name="Inside" value="Inside">Inside<br>
+														<input type="checkbox" name="Gym" value="Gym">Gym
+													</td>
+												</tr>
+											</table><hr>
+											<button class="modalbtn">Save New Program</button>
+										</header>
+									</form>
+
+								</div>
+
+							</div>
+						</div>
+						<div class="cards" ng-repeat="program in programs | limitTo:3">
+							<p id="pname">{{program.Name}} </p>
+							<button class="pencil"></button><br><br>
+							<div class="salesBy">Sales By Month</div>
+							<img class="graph" src="images/graph.png">
+							<table class="ctable">
+								<tr>
+									<td class="light">
+										Total Monthly
+									</td>
+									<td class="lighter">
+										Current
+									</td>
+									<td class="lighter">
+										1-Year
+									</td>
+								</tr>
+								<tr>
+									<td class="totalm">
+										Sales
+									</td>
+									<td class="sale" style="color: black">
+										${{program.TotalMonthlySales | number:0}}
+									</td>
+									<td>
+										<img src="images/spark_line.png">
+									</td>
+								</tr>
+							</table><br>
+
+							<table ng-show="program.moreview" style="float: left;">
+								<tr>
+									<th class="sale">Price Name</th>
+									<th class="lighter">Current</th>
+								</tr>
+								<!-- Repeating list of prices for each program -->
+								<tr ng-repeat="price in prices | limitTo:7">
+									<td class="pricename">{{price.Name}}</td>
+									<td class="lighter" style="font-size: 80%">${{price.Sales | number:0}}</td>
+								</tr>
+							</table>
+
+							<table style="float: right;" ng-show="program.moreview">
+								<tr>
+									<th class="lighter">1-year</th>
+								</tr>
+								<tr>
+									<td><img src="images/spark_lines.png"  ></td>
+								</tr>
+
+							</table><br>
+
+							<p class="sale" style="cursor: pointer;" ng-click="program.moreview = !program.moreview;">{{!program.moreview ? 'more..' : '..less'}}</p>
+						</div>
+
+						<div class="extra"><br>
+							<table width="700px" style="text-align: left">
+								<tr>
+									<th width="115px" class="pricename" style="font-size: 90%">
+										All Programs
+									</th>
+									<th width="100px" class="light">
+										Monthly Sales
+									</th>
+									<th width="150px" class="light">
+										Monthly Attendance
+									</th>
+									<th></th><th></th>
+								</tr>
+							</table>
+							<hr>
+							<table width="700px">
+								<tr ng-repeat="programlist in programs | limitTo:2:3">
+									<td width="115px" class="dark" >{{programlist.Name}}<br>
+										<span class="light">more</span>
+									</td>
+									<td width="100px" height="60px" class="dark">
+										<p>${{programlist.TotalMonthlySales | number:0}}</p>
+									</td>
+									<td width="150px" class="dark">
+										<p>{{programlist.MonthlyAttendance | number:0}} <span class="small">visits</span></p>
+									</td>
+								<td></td><td></td>
+							</table>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="js/app.js"></script>
+</body>
+</html>

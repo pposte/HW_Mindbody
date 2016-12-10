@@ -1,0 +1,246 @@
+body{
+    background-color: rgb(238, 247,243);
+}
+.tabs {
+    position: relative;
+    min-height: 600px;
+    clear: both;
+    margin-top: 20px;
+    background: grey;
+}
+.tab {
+    float: right;
+}
+.tab label {
+    background: rgb(243, 246, 245);
+    padding: 10px 35px 10px 35px;
+    border: 1px solid #ccc;
+    margin-left: -1px;
+    position: relative;
+    left: 1px;
+    top: -29px;
+    -webkit-transition: background-color .1s linear;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(116, 143, 124);
+    font-weight: lighter;
+}
+.modalradio [type=radio]{
+    display:inline;
+    opacity: 1;
+}
+.tab [type=radio] {
+    display:inline;
+    margin: -5px;
+    padding: 0px;
+    opacity: 0.5;
+}
+.content {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    background: white;
+    right: 0;
+    bottom: 0;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    -webkit-transition: opacity .1s linear;
+    opacity: 0;
+}
+[type=radio]:checked ~ label {
+    background: white;
+    z-index: 2;
+    box-shadow: 0px -1px 5px black;
+    border-radius: 5px 5px 0px 0px;
+    color: black;
+    font-weight: bold;
+}
+[type=radio]:checked ~ label ~ .content {
+    z-index: 1;
+    opacity: 1;
+
+}
+.container{
+    background-color: white;
+    padding:5px 10px 0px 10px;;
+    margin-bottom: 10px;
+    margin-left: 80px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:20px;
+}
+a:active, a:visited{
+    font-weight: bold;
+}
+
+.overview {
+    min-height: 500px;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-radial-gradient(rgb(241,242,235), rgb(237,236,228), rgb(219,218,207)); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(rgb(241,242,235), rgb(237,236,228), rgb(219,218,207)); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(rgb(241,242,235), rgb(237,236,228), rgb(219,218,207)); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(rgb(241,242,235), rgb(237,236,228), rgb(219,218,207)); /* Standard syntax */
+}
+
+#btn{
+
+    width: 80px;
+    height: 80px;
+    background: transparent url("../images/plus_icon.png")  no-repeat center;
+    background-color:rgb(166,194,133) ;
+    border-radius: 6px;
+    margin: 25px 0px 0px 80px;
+}
+.newp{
+    margin: 5px 0px 0px 80px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: bold;
+}
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);/* Fallback */
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position:relative;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modalbtn{
+    font-size: x-large;
+    width: 100%;
+    height: 80px;
+    font-weight: bolder;
+}
+.modalbtn:hover{
+    color: green;
+    background-color: white;
+}
+.newprogram{
+    width: 20%;
+    float: left;
+}
+/* Card from calling API */
+.cards{
+    padding: 10px;
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 5px;
+    float: left;
+    width:18%;
+
+    background-color: rgb(255,255,255);
+    border-radius: 5px;
+    display: block;
+
+}
+#pname {
+    width: 130px;
+    float: left;
+    font-weight: bold;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* Pencil Icon Sprite*/
+.pencil{
+    float: right;
+    width: 23px;
+    height: 22px;
+    background: url("../images/pencil_icons.png") white 0 17px;
+}
+/* Pencil Icon Sprite hover */
+.pencil:hover{
+    background: url("../images/pencil_icons.png") white 0 34px;
+}
+.salesBy{
+    position: absolute;
+    float: left;
+    font-weight: lighter;
+    color: rgb(182,182,174);
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 6px;
+    padding: 10px;
+}
+.graph{
+    margin-left: 12px;
+}
+/* Tables */
+.ctable{
+    width: 100%;
+    min-height: 20px;
+    background: rgb(250,250,245);
+}
+.light{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(181,181,171);
+    font-size: 70%;
+}
+.lighter{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60%;
+    color:rgb(201,201,213);
+}
+.totalm{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(181,181,171);
+    font-size: 80%;
+}
+.sale{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    color: rgb(181,181,171);
+}
+.pricename{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(142,142,129);
+    font-size: 70%;
+}
+.extra{
+    width:52%;
+    padding: 330px;
+    padding-left: 272px;
+    display: block;
+}
+.dark{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
